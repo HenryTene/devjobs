@@ -20,10 +20,14 @@
                 name="salario"
                 class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
 
-               <option value="">-- Selecciona un salario --</option>
-               <option value="1000" {{ old('salario') == '1000' ? 'selected' : '' }}>1,000</option>
-               <option value="2000" {{ old('salario') == '2000' ? 'selected' : '' }}>2,000</option>
-               <option value="3000" {{ old('salario') == '3000' ? 'selected' : '' }}>3,000</option>
+               <option >-- Selecciona un salario --</option>
+               @foreach ($salarios as $salario)
+                   <option value="{{ $salario->id }}">
+                       {{ $salario->salario }}
+                   </option>
+               @endforeach
+
+
 
             </select>
             <x-input-error :messages="$errors->get('salario')" class="mt-2" />
