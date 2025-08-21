@@ -6,7 +6,7 @@
                 id="titulo"
                 class="block mt-1 w-full"
                 type="text"
-                name="titulo"
+                wire:model="titulo"
                 :value="old('titulo')"
                 placeholder="Título Vacante"
             />
@@ -17,7 +17,7 @@
             <x-label for="salario" :value="__('Salario Mensual' )" />
             <select
                 id="salario"
-                name="salario"
+                wire:model="salario"
                 class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
 
                <option >-- Selecciona un salario --</option>
@@ -38,7 +38,7 @@
             <x-label for="categoria" :value="__('Categoría')" />
             <select
                 id="categoria"
-                name="categoria"
+                wire:model="categoria"
                 class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
 
                 <option >-- Selecciona una categoria--</option>
@@ -58,7 +58,7 @@
                 id="empresa"
                 class="block mt-1 w-full"
                 type="text"
-                name="empresa"
+                wire:model="empresa"
                 :value="old('empresa')"
                 placeholder="Nombre de la Empresa"
             />
@@ -71,7 +71,7 @@
                 id="ultimo_dia"
                 class="block mt-1 w-full"
                 type="date"
-                name="ultimo_dia"
+                wire:model="ultimo_dia"
                 :value="old('ultimo_dia')"
             />
             <x-input-error :messages="$errors->get('ultimo_dia')" class="mt-2" />
@@ -81,7 +81,7 @@
             <x-label for="descripcion" :value="__('Descripción')" />
             <textarea
                 id="descripcion"
-                name="descripcion"
+                wire:model="descripcion"
                 class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
                 rows="5"
                 placeholder="Descripción del trabajo"
@@ -95,7 +95,7 @@
                 id="imagen"
                 class="block mt-1 w-full"
                 type="file"
-                name="imagen"
+                wire:model="imagen"
             />
             <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
         </div>
