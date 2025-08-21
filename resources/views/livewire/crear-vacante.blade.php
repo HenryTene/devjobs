@@ -41,10 +41,12 @@
                 name="categoria"
                 class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
 
-                <option value="">-- Selecciona una categoría --</option>
-                <option value="tecnologia" {{ old('categoria') == 'tecnologia' ? 'selected' : '' }}>Tecnología</option>
-                <option value="marketing" {{ old('categoria') == 'marketing' ? 'selected' : '' }}>Marketing</option>
-                <option value="finanzas" {{ old('categoria') == 'finanzas' ? 'selected' : '' }}>Finanzas</option>
+                <option >-- Selecciona una categoria--</option>
+                @foreach ($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">
+                        {{ $categoria->categoria }}
+                    </option>
+                @endforeach
 
             </select>
             <x-input-error :messages="$errors->get('categoria')" class="mt-2" />
