@@ -25,6 +25,11 @@ class CrearVacante extends Component
         'descripcion' => 'required',
         'imagen' => 'required',
     ];
+
+    public function crearVacante()
+    {
+        $this->validate();
+    }
     public function render()
     {
         // Consultar BD
