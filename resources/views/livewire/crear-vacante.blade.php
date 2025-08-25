@@ -18,7 +18,7 @@
             <select
                 id="salario"
                 wire:model="salario"
-                class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
+                class="rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 w-full"
 
                <option >-- Selecciona un salario --</option>
                @foreach ($salarios as $salario)
@@ -39,7 +39,7 @@
             <select
                 id="categoria"
                 wire:model="categoria"
-                class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
+                class="rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 w-full"
 
                 <option >-- Selecciona una categoria--</option>
                 @foreach ($categorias as $categoria)
@@ -82,7 +82,7 @@
             <textarea
                 id="descripcion"
                 wire:model="descripcion"
-                class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
+                class="rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 w-full"
                 rows="5"
                 placeholder="Descripción del trabajo"
             >{{ old('descripcion') }}</textarea>
