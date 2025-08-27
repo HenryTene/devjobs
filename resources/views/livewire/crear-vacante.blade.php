@@ -116,6 +116,13 @@
                 wire:model="imagen"
                 accept="image/*"
             />
+            <div class="my-5">
+                @if ($imagen)
+                    Imagen:
+                    <img src="{{ $imagen->temporaryUrl() }}" alt="Imagen previa" class="mt-2 w-48 h-48 object-cover">
+                @endif
+
+            </div>
 
                 @error('imagen')
                     <livewire:mostrar-alerta :message="$message" />
