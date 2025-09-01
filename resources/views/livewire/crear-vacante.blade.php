@@ -23,12 +23,12 @@
                 wire:model="salario"
                 class="rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 w-full"
 
-               <option >-- Selecciona un salario --</option>
-               @foreach ($salarios as $salario)
-                   <option value="{{ $salario->id }}">
-                       {{ $salario->salario }}
-                   </option>
-               @endforeach
+               >
+                <option value="">-- Selecciona un salario --</option>
+                @foreach ($salarios as $salario)
+                    <option value="{{ $salario->id }}">{{ $salario->salario }}</option>
+                @endforeach
+
 
 
 
@@ -47,12 +47,12 @@
                 wire:model="categoria"
                 class="rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 w-full"
 
-                <option >-- Selecciona una categoria--</option>
-                @foreach ($categorias as $categoria)
-                    <option value="{{ $categoria->id }}">
-                        {{ $categoria->categoria }}
-                    </option>
-                @endforeach
+                >
+                    <option >-- Selecciona una categoria--</option>
+                    @foreach ($categorias as $categoria)
+                        <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+                    @endforeach
+
 
             </select>
 
