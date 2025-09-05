@@ -32,3 +32,7 @@
     @endforelse
 
 </div>
+
+<div class="flex justify-center mt-5">
+    {{ $vacantes->links() }}
+</div>
