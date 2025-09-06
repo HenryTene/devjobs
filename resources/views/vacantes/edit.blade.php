@@ -13,7 +13,7 @@
                         Editar Vacante : {{ $vacante->titulo }}
                     </h1>
                     <div class="flex justify-center p-5">
-
+                        <livewire:editar-vacante :vacante="$vacante"/>
                     </div>
                 </div>
             </div>
