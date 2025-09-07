@@ -47,7 +47,7 @@ class CrearVacante extends Component
 
         //Crear la vacante
         Vacante::create([
-            'titulo' =>$datos['titulo'],
+            'titulo' => $datos['titulo'],
             'salario_id' => $datos['salario'],
             'categoria_id' => $datos['categoria'],
             'empresa' => $datos['empresa'],
@@ -69,7 +69,7 @@ class CrearVacante extends Component
         // Consultar BD
         $salarios = Salario::all();
         $categorias = Categoria::all();
-        return view('livewire.crear-vacante',[
+        return view('livewire.crear-vacante', [
             'salarios' => $salarios,
             'categorias' => $categorias
         ]);
