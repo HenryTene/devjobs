@@ -64,7 +64,6 @@ class EditarVacante extends Component
 
         // Redirecconar y mostrar mensaje de éxito QUE DURE 5 SEGUNDOS
         session()->flash('mensaje', 'La vacante se actualizó correctamente');
-         session()->flash('class', 'bg-success-100 border-l-4 border-green-500 text-green-700 p-4 mb-5');
         return redirect()->route('vacantes.index');
 
     }
