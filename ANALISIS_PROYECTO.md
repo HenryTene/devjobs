@@ -92,3 +92,34 @@ Continuando con la implementación del tema claro, se realizaron más ajustes pa
 ### 3. Limpieza de Caché (Múltiples Ocasiones)
 
 *   **Acción:** Se ejecutaron los comandos `php artisan view:clear` y `php artisan cache:clear` repetidamente después de cada serie de cambios para asegurar que las actualizaciones se reflejaran correctamente en el navegador.
+
+## Actualización 3: Corrección de Estilos en SweetAlert2
+
+Se solucionó un problema de visualización con la librería SweetAlert2, cuyos botones no se mostraban con el estilo esperado.
+
+### 1. Diagnóstico del Problema
+
+*   **Síntoma:** Al mostrar un modal de SweetAlert2 (cargado desde un CDN), los botones de confirmación y cancelación aparecían sin ningún estilo (fondo, color, etc.).
+*   **Causa Raíz:** Se identificó un conflicto entre los estilos base de Tailwind CSS (conocidos como Preflight) y los estilos por defecto de SweetAlert2. Preflight reseteaba la apariencia de los botones, y los estilos del CDN de SweetAlert2 no eran lo suficientemente específicos para prevalecer.
+
+### 2. Proceso de Solución
+
+*   **Intento Inicial:** Se intentó asegurar la carga del CSS de SweetAlert2 desde su CDN, separando la hoja de estilos en el stack `@styles` de Blade. Aunque era una práctica correcta, no solucionó el conflicto fundamental de especificidad con Tailwind.
+*   **Solución Definitiva:** Se optó por forzar la estilización de los botones de SweetAlert2 utilizando las propias clases de utilidad de Tailwind.
+    *   **Acción:** Se modificó el archivo `resources/css/app.css` para añadir reglas personalizadas para las clases `.swal2-confirm` y `.swal2-cancel`.
+    *   **Implementación:** Se utilizó la directiva `@apply` de Tailwind para asignar clases de `bg-color`, `text-color`, `font-bold`, `padding` y `rounded` a los botones, integrándolos con la estética general de la aplicación.
+    ```css
+    /* Estilos para SweetAlert2 */
+    .swal2-confirm {
+        @apply bg-blue-800 text-white font-bold py-2 px-4 rounded;
+    }
+
+    .swal2-cancel {
+        @apply bg-red-600 text-white font-bold py-2 px-4 rounded;
+    }
+    ```
+
+### 3. Verificación
+
+*   **Acción:** Se indicó al usuario que ejecutara `npm run build` (o `npm run dev`) para compilar los nuevos estilos en el `app.css` final.
+*   **Resultado:** Tras la compilación y una recarga del navegador, los botones de SweetAlert2 se mostraron correctamente estilizados, confirmando la solución.
