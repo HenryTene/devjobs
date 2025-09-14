@@ -14,8 +14,10 @@
                     class="bg-slate-800 py-2 px-4 rounded-lg text-white text-xs font-bold  uppercase text-center">Candidatos</a>
                 <a href="{{ route('vacantes.edit', $vacante->id) }}"
                     class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold  uppercase text-center">Editar</a>
-                <a href="#"
-                    class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold  uppercase text-center">Eliminar</a>
+                <button
+                    wire:click="$emit('mostrarAlerta', {{ $vacante->id }})"
+                    class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold  uppercase text-center"
+                >Eliminar</button>
             </div>
         </div>
 
@@ -34,8 +36,9 @@
 @endpush
 
 @push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Livewire.on('mostrarAlerta', vacanteId => {
         Swal.fire({
             title: "¿Eliminar vacante?",
             text: "Una vez eliminada, no se podrá recuperar",
@@ -47,13 +50,16 @@
             cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
+                // Eliminar la vacante
+                Livewire.emit('eliminarVacante', vacanteId);
+
+                Swal.fire(
+                    'Eliminada',
+                    'La vacante se eliminó correctamente',
+                    'success'
+                )
             }
         });
-
-    </script>
+    });
+</script>
 @endpush
