@@ -6,5 +6,9 @@
             <x-label for="cv" :value="__('Curriculum o Hoja de vida(PDF)')"/>
             <x-input id="cv" type="file" accept=".pdf" class="block mt-1 w-full"/>
         </div>
+
+        <x-primary-button class="my-5">
+            {{ __('Postularme') }}
+        </x-primary-button>
     </form>
 </div>
