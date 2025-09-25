@@ -17,6 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
+    //http://127.0.0.1:8025/ para confirmar user email
     protected $fillable = [
         'name',
         'email',
