@@ -21,14 +21,22 @@ class Vacante extends Model
         'user_id'
     ];
 
-    public function categoria(){
+    public function categoria()
+    {
         return $this->belongsTo(Categoria::class);
     }
 
-    public function salario(){
+    public function salario()
+    {
         return $this->belongsTo(Salario::class);
     }
-    public function candidatos(){
+    public function candidatos()
+    {
         return $this->hasMany(Candidato::class);
+    }
+
+    public function reclutador()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
