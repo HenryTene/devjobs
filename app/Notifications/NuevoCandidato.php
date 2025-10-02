@@ -47,7 +47,9 @@ class NuevoCandidato extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url('/vacantes/candidatos/' . $this->id_vacante);
+        #$url = url('/vacantes/candidatos/' . $this->id_vacante);
+        $url = url('/notificaciones/');
+
         return (new MailMessage)
                     ->line('Has recibido un nuevo candidato para la vacante: ' . $this->nombre_vacante )
                     ->line('La vacante es : ' . $this->nombre_vacante)
