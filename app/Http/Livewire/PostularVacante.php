@@ -24,6 +24,10 @@ class PostularVacante extends Component
     }
     public function postularme()
     {
+        // Validar que el usuario este autenticado
+        if(!auth()->check()){
+            return redirect()->route('register');
+        }
         $datos = $this->validate();
 
         // Almacenar el cv en el disco duro
