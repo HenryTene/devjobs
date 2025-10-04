@@ -27,7 +27,7 @@ Route::get('/vacantes/{vacante}', [VacanteController::class, 'show'])->name('vac
 
 // Notificaciones
 //Route::get('/notificaciones/', NotificacionController::class)->middleware(['auth', 'verified'])->name('notificaciones');
-Route::get('/notificaciones/', NotificacionController::class);
+Route::get('/notificaciones/', NotificacionController::class)->name('notificaciones');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
