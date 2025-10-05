@@ -10,15 +10,17 @@
                     </a>
                 </div>
                 @auth
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                        {{ __('Mis vacantes') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
-                        {{ __('Crear Vacante') }}
-                    </x-nav-link>
-                </div>
+                    @can('create', App\Models\Vacante::class)
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
+                            {{ __('Mis vacantes') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                            {{ __('Crear Vacante') }}
+                        </x-nav-link>
+                    </div>
+                    @endcan
                 @endauth
 
             </div>
@@ -27,7 +29,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @auth
                 <!-- Notificaciones -->
-                    @if (auth()->user()->rol===2)
+                     @can('create', App\Models\Vacante::class)
                         <div class="mr-3"></div>
                         <a href="{{ route('notificaciones') }}" class="flex items-center">
                             {{-- Icono que este de color rojo si hay notificaciones pero si no hay que sea blanco--}}
@@ -36,7 +38,7 @@
                             </svg>
                             {{Auth::user()->unreadNotifications->count()}}
                         </a>
-                    @endif
+                    @endcan
 
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -112,7 +114,7 @@
             <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
                 {{ __('Crear Vacantes') }}
             </x-responsive-nav-link>
-                
+
                 @if (auth()->user()->rol===2)
                     <div class="flex gap-2 items-center p-3">
                     <a href="{{ route('notificaciones') }}" class="flex items-center">
