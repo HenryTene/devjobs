@@ -1,4 +1,5 @@
 <div>
+    <livewire:filtrar-vacantes />
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h3 class="font-extrabold text-4xl text-gray-700 mb-12">Nuestras vacantes disponibles</h3>
@@ -9,9 +10,9 @@
                         <a class="text-3xl font-extrabold tex-gray-600 " href="{{route('vacantes.show',$vacante->id)}}">
                             {{ $vacante->titulo }}
                         </a>
-                        <p class="text-base text-gray-600 mb-1">
-                            {{ $vacante->empresa }}
-                        </p>
+                        <p class="text-base text-gray-600 mb-1">{{ $vacante->empresa }}</p>
+                        <p class="text-base text-gray-600 mb-1">{{ $vacante->categoria->categoria }}</p>
+                        <p class="text-base text-gray-600 mb-1">{{ $vacante->salario->salario }}</p>
                         <p class="font-bold text-xs text-gray-600">
                             Último día para postularse:
                             <span class="font-normal">{{ $vacante->ultimo_dia->toFormattedDateString() }}</span>
